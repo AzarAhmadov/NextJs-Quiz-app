@@ -5,7 +5,7 @@ import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
 import { ThemeProvider, useTheme } from "next-themes";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { forwardRef } from "react";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { Switch } from "./switch";
 
 export function ColorModeProvider(props: ThemeProviderProps) {
   return (
@@ -32,7 +32,11 @@ export function useColorModeValue<T>(light: T, dark: T) {
 
 export function ColorModeIcon() {
   const { colorMode } = useColorMode();
-  return colorMode === "light" ? <LuSun /> : <LuMoon />;
+  return colorMode === "light" ? (
+    <Switch size="lg" colorPalette="purple" />
+  ) : (
+    <Switch size="lg" checked colorPalette="purple" />
+  );
 }
 
 interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> {}
