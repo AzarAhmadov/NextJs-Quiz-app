@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/app/styles/globals.css";
 import { Provider } from "@/components/ui/provider";
+import { Rubik } from "next/font/google";
+import { Container } from "@chakra-ui/react";
+
+const rubik = Rubik({
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,9 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html className={rubik.className} suppressHydrationWarning lang="en">
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Container padding="83px">{children}</Container>
+        </Provider>
       </body>
     </html>
   );
