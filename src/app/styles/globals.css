@@ -1,0 +1,20 @@
+@import url(./variable.css);
+@import url(./root.css);
+
+html {
+  transition: 300ms all !important;
+  font-size: 16px;
+}
+
+.dark {
+  background: var(--dark-mode);
+}
+
+.light {
+  background: var(--light-mode);
+}
+
+.chakra-button {
+  background: transparent;
+  height: fit-content;
+}
