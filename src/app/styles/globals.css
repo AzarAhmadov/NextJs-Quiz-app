@@ -6,8 +6,25 @@ html {
   font-size: 16px;
 }
 
+body {
+  overflow: hidden;
+}
+
 .dark {
   background: var(--dark-mode);
+}
+
+.dark {
+  .question {
+    background: #3b4d66;
+  }
+  .title {
+    color: #fff;
+    opacity: 1;
+  }
+  .bottom-title {
+    color: #abc1e1;
+  }
 }
 
 .light {
