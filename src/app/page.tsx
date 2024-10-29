@@ -1,30 +1,58 @@
-import Heading from "@/components/common/heading";
-import { Box, Text } from "@chakra-ui/react";
-import React from "react";
+"use client";
 
-const page = () => {
+import Heading from "@/components/common/Heading";
+import QuestionArea from "@/components/ui/QuestionArea";
+import { categories } from "@/constants/constants";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import React from "react";
+import { useRouter } from "next/navigation";
+
+const Page = () => {
+  const router = useRouter();
+
+  const handleClick = (link: string) => {
+    router.push(link);
+  };
+
   return (
     <>
       <Heading />
-      <Box marginTop="99px" width="28.25rem" lineHeight="5rem" color="text-dark-navy">
-        <Box fontSize="4rem" fontWeight="300">
-          Welcome to the{" "}
-          <Text fontWeight="500" opacity="0.8">
-            Frontend Quiz!
+      <Flex marginTop="6rem" justifyContent="space-between">
+        <Box lineHeight="5rem" color="text-dark-navy">
+          <Box className="title" fontSize="4rem" fontWeight="300">
+            Welcome to the <br />
+            <Text as="span" fontWeight="500">
+              Frontend Quiz!
+            </Text>
+          </Box>
+          <Text
+            marginTop="2rem"
+            fontWeight="400"
+            fontSize="1.25rem"
+            color="text-gray-navy"
+            fontStyle="italic"
+            className="bottom-title"
+          >
+            Pick a subject to get started.
           </Text>
         </Box>
-        <Text
-          marginTop="48px"
-          fontWeight="400"
-          fontSize="20px"
-          color="text-gray-navy"
-          fontStyle="italic"
-        >
-          Pick a subject to get started.
-        </Text>
-      </Box>
+
+        <Flex width="35.25rem" direction="column" gap="1.5rem">
+          {categories.map((item, index) => (
+            <QuestionArea
+              handleClick={handleClick}
+              icon={true}
+              variants={false}
+              item={item}
+              key={index}
+            >
+              {item.label}
+            </QuestionArea>
+          ))}
+        </Flex>
+      </Flex>
     </>
   );
 };
 
-export default page;
+export default Page;
