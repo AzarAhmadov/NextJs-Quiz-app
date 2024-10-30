@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   const category = searchParams.get("category");
 
   const quizData: QuizData = {
-    HTML: [
+    html: [
       {
         id: 1,
         question: "What does HTML stand for?",
@@ -42,7 +42,7 @@ export async function GET(request: Request) {
         answer: "<br>",
       },
     ],
-    CSS: [
+    css: [
       {
         id: 4,
         question: "What does CSS stand for?",
@@ -72,7 +72,7 @@ export async function GET(request: Request) {
         answer: "text-align: center;",
       },
     ],
-    JavaScript: [
+    javascript: [
       {
         id: 7,
         question: "What is the purpose of `let` in JavaScript?",
@@ -107,7 +107,7 @@ export async function GET(request: Request) {
         answer: "getElementById",
       },
     ],
-    Accessibility: [
+    accessibility: [
       {
         id: 10,
         question:
@@ -142,9 +142,7 @@ export async function GET(request: Request) {
 
   if (category && quizData[category]) {
     return NextResponse.json({
-      quiz: {
-        [category]: quizData[category],
-      },
+      [category]: quizData[category],
     });
   }
 
