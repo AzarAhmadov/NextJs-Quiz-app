@@ -1,3 +1,4 @@
+
 "use client";
 
 import QuestionArea from "@/components/ui/QuestionArea";
@@ -84,7 +85,7 @@ const Page = () => {
               color="text-gray-navy"
               fontStyle="italic"
               fontWeight="400"
-              fontSize={{base:"0.875rem", md:"2.25rem"}}
+              fontSize={{base:"0.875rem ", md:"1.25rem" }}
               marginBottom={{base:"0.75rem ", md:"1.688rem"}}
             >
               Question {current + 1} of {category[slug]?.length}
