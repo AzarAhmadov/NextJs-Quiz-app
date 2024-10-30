@@ -12,7 +12,9 @@ export type TypeCard = {
     color: string;
     link: string;
   };
-  selectedOption?:boolean;
+  wrong?: boolean;
+  correct?: boolean;
+  selectedOption?: boolean;
   options?: string;
   variantsText?: string;
   variants: boolean;
