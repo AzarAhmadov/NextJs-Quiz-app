@@ -6,13 +6,24 @@ export type TypeTitle = {
 
 export type TypeCard = {
   children: ReactNode;
-  item: {
+  item?: {
     label: string;
     icon: string;
     color: string;
     link: string;
   };
-  variants:boolean
-  handleClick?: (link: string) => void;
+  selectedOption?:boolean;
+  options?: string;
+  variantsText?: string;
+  variants: boolean;
+  handleClick?: () => void;
   icon?: boolean;
+};
+
+export type TypeQuestion = {
+  id: number;
+  question: string;
+  options: string[];
+  answer: string;
+  item: any;
 };
