@@ -9,21 +9,29 @@ const QuestionArea: React.FC<TypeCard> = ({
   icon = false,
   handleClick,
   variants = true,
+  variantsText,
+  selectedOption,
 }) => {
   return (
     <Flex
-      align="center"
       bg="white"
-      p="1.25rem"
+      align="center"
       w="100%"
       maxW="35.25rem"
       borderRadius="1.5rem"
-      _hover={{ boxShadow: "xl" }}
-      onClick={() => handleClick?.(item.link)}
+      _hover={{ boxShadow: "xl", outline: "3px solid #A729F5" }}
+      onClick={handleClick}
+      outline={selectedOption ? "3px solid #A729F5" : ""}
       className="question"
     >
-      <Box display="flex" alignItems="center" cursor="pointer" width="full">
-        {icon && (
+      <Box
+        display="flex"
+        alignItems="center"
+        p="1.25rem"
+        cursor="pointer"
+        width="full"
+      >
+        {icon && item && (
           <Flex
             align="center"
             justify="center"
@@ -41,19 +49,19 @@ const QuestionArea: React.FC<TypeCard> = ({
             display="flex"
             alignItems="center"
             justifyContent="center"
-            bg="#F4F6FA"
+            bg={selectedOption ? "#A729F5" : "#F4F6FA"}
             w="3.5rem"
             h="3.5rem"
-            className="text-gray-navy"
+            color={selectedOption ? "#fff" : " #313e51"}
             borderRadius="0.5rem"
             fontWeight="500"
             mr="2rem"
             fontSize="1.75rem"
           >
-            A
+            {variantsText}
           </Text>
         )}
-        <Text fontSize="1.75rem" fontWeight="500" color="text-purple">
+        <Text fontSize="1.45rem" fontWeight="500" color="text-purple">
           {children}
         </Text>
       </Box>
