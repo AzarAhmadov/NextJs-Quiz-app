@@ -7,16 +7,19 @@ html {
 }
 
 body {
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .dark {
   background: var(--dark-mode);
-}
-
-.dark {
   .question {
     background: #3b4d66;
+  }
+  .button {
+    color: #fff;
   }
   .title {
     color: #fff;
