@@ -22,10 +22,15 @@ export const quizSlice = createSlice({
     getWrongAnswers: (state) => {
       state.wrongAnswer += 1;
     },
+    resetQuiz: (state) => {
+      state.correctAnswer = 0;
+      state.wrongAnswer = 0;
+    },
   },
 });
 
-export const { getCorrectAnswers, getWrongAnswers } = quizSlice.actions;
+export const { getCorrectAnswers, getWrongAnswers, resetQuiz } =
+  quizSlice.actions;
 
 export const useQuiz = () => useSelector((state: RootState) => state.quiz);
 

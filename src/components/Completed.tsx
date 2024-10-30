@@ -2,20 +2,24 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 import React from "react";
 import { Button } from "./ui/button";
 import { usePathname, useRouter } from "next/navigation";
-import { useQuiz } from "@/lib/features/quizSlice";
+import { resetQuiz, useQuiz } from "@/lib/features/quizSlice";
 import { categories } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
 import { getCategory } from "@/app/actions/actions";
 import Category from "./Category";
+import { useAppDispatch } from "@/lib/utility/hooks";
 
 const Completed = () => {
   const slug = usePathname().replace("/", "");
   const getFindCatagory = categories.find((item) => item.link === slug);
-
+  const dispatch = useAppDispatch();
   const { correctAnswer } = useQuiz();
   const router = useRouter();
 
+  console.log(correctAnswer)
+
   const handleClick = () => {
+    dispatch(resetQuiz());
     router.push("/");
   };
 
