@@ -11,7 +11,12 @@ const QuestionArea: React.FC<TypeCard> = ({
   variants = true,
   variantsText,
   selectedOption,
+  correct,
+  wrong,
 }) => {
+  const isCorrect = correct && selectedOption;
+  const isWrong = wrong && selectedOption;
+
   return (
     <Flex
       bg="white"
@@ -21,8 +26,7 @@ const QuestionArea: React.FC<TypeCard> = ({
       borderRadius="1.5rem"
       _hover={{ boxShadow: "xl", outline: "3px solid #A729F5" }}
       onClick={handleClick}
-      outline={selectedOption ? "3px solid #A729F5" : ""}
-      className="question"
+      className={`question ${(isCorrect && "correct") || (isWrong && "wrong")}`}
     >
       <Box
         display="flex"
@@ -36,8 +40,8 @@ const QuestionArea: React.FC<TypeCard> = ({
             align="center"
             justify="center"
             bg={item.color}
-            w="12"
-            h="12"
+            w="56px"
+            h="50px"
             borderRadius="0.70rem"
             mr="2rem"
           >
@@ -49,10 +53,10 @@ const QuestionArea: React.FC<TypeCard> = ({
             display="flex"
             alignItems="center"
             justifyContent="center"
-            bg={selectedOption ? "#A729F5" : "#F4F6FA"}
-            w="3.5rem"
-            h="3.5rem"
-            color={selectedOption ? "#fff" : " #313e51"}
+            bg={isCorrect ? "#26D782" : isWrong ? "#EE5454" : "#F4F6FA"}
+            w="3rem"
+            h="2.5rem"
+            color={selectedOption ? "#fff" : "#313e51"}
             borderRadius="0.5rem"
             fontWeight="500"
             mr="2rem"
@@ -61,9 +65,23 @@ const QuestionArea: React.FC<TypeCard> = ({
             {variantsText}
           </Text>
         )}
-        <Text fontSize="1.45rem" fontWeight="500" color="text-purple">
+
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          fontSize="1.45rem"
+          fontWeight="500"
+          color="text-purple"
+          w="100%"
+        >
           {children}
-        </Text>
+          {isCorrect && (
+            <Image src="/correct.svg" width={30} height={30} alt="correct" />
+          )}
+          {isWrong && (
+            <Image src="/wrong.svg" width={30} height={30} alt="wrong" />
+          )}
+        </Flex>
       </Box>
     </Flex>
   );
