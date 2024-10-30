@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quiz Application
 
-## Getting Started
+A responsive quiz application built with **Next.js 14**, utilizing **React Query**, **Redux Toolkit**, **TypeScript**, and **Chakra UI**. This app allows users to select quiz categories and answer questions, providing instant feedback on their answers, with support for light/dark mode.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Dynamic Quiz Categories**: Select from various categories to take quizzes relevant to your interests.
+- **Instant Feedback**: Get immediate feedback on whether your answers are correct or incorrect.
+- **Progress Tracking**: Track your progress throughout the quiz.
+- **Light/Dark Mode**: Toggle between light and dark themes for a personalized experience.
+- **Responsive Design**: Optimized for both desktop and mobile views.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14**: Framework for building the application with server-side rendering and static site generation.
+- **React Query**: For managing server state and fetching data efficiently.
+- **Redux Toolkit**: State management for application-wide data.
+- **TypeScript**: Provides type safety and enhances development experience.
+- **Chakra UI**: For building accessible and responsive UI components.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
 
-## Learn More
+Follow these steps to set up the project locally:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/azarahmadov/NextJs-Quiz-app.git
+   cd NextJs-Quiz-app
+   
+2. **Install dependencies**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
 
-## Deploy on Vercel
+3. **Set up the environment**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   NEXT_PUBLIC_API_URL=http://localhost:3000
+   
+4. **Run the development server**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   npm run dev
+5. Open your browser and go to http://localhost:3000 to see the application in action.
+
+## Usage
+1. Choose a quiz category from the main page.
+2. Answer the multiple-choice questions presented.
+3. Receive feedback on your answers.
+4. Track your progress with the provided progress bar.
+5. Toggle between light and dark mode using the UI switch.
+
+## Screens
+<img width="1472" alt="Screenshot 2024-10-31 at 01 12 29" src="https://github.com/user-attachments/assets/0ddcb14a-c3ad-47be-9288-d6083a5db2e4">
+<img width="1472" alt="Screenshot 2024-10-31 at 01 12 48" src="https://github.com/user-attachments/assets/5a020297-e9fd-447c-9a47-9dd13b4e9e2c">
+<img width="1472" alt="Screenshot 2024-10-31 at 01 13 01" src="https://github.com/user-attachments/assets/6717375b-313a-41c2-9a53-ba702b9f34fb">
