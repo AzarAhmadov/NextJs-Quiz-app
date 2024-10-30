@@ -51,3 +51,7 @@ Follow these steps to set up the project locally:
 4. Track your progress with the provided progress bar.
 5. Toggle between light and dark mode using the UI switch.
 
+## Screens
+<img width="1472" alt="Screenshot 2024-10-31 at 01 12 29" src="https://github.com/user-attachments/assets/0ddcb14a-c3ad-47be-9288-d6083a5db2e4">
+<img width="1472" alt="Screenshot 2024-10-31 at 01 12 48" src="https://github.com/user-attachments/assets/5a020297-e9fd-447c-9a47-9dd13b4e9e2c">
+<img width="1472" alt="Screenshot 2024-10-31 at 01 13 01" src="https://github.com/user-attachments/assets/6717375b-313a-41c2-9a53-ba702b9f34fb">
