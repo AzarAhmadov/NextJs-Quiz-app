@@ -1,6 +1,5 @@
 "use client";
 
-import Heading from "@/components/common/Heading";
 import QuestionArea from "@/components/ui/QuestionArea";
 import { categories } from "@/constants/constants";
 import { Box, Flex, Text } from "@chakra-ui/react";
@@ -15,43 +14,40 @@ const Page = () => {
   };
 
   return (
-    <>
-      <Heading />
-      <Flex marginTop="6rem" justifyContent="space-between">
-        <Box lineHeight="5rem" color="text-dark-navy">
-          <Box className="title" fontSize="4rem" fontWeight="300">
-            Welcome to the <br />
-            <Text as="span" fontWeight="500">
-              Frontend Quiz!
-            </Text>
-          </Box>
-          <Text
-            marginTop="2rem"
-            fontWeight="400"
-            fontSize="1.25rem"
-            color="text-gray-navy"
-            fontStyle="italic"
-            className="bottom-title"
-          >
-            Pick a subject to get started.
+    <Flex marginTop="6rem" justifyContent="space-between">
+      <Box lineHeight="5rem" color="text-dark-navy">
+        <Box className="title" fontSize="4rem" fontWeight="300">
+          Welcome to the <br />
+          <Text as="span" fontWeight="500">
+            Frontend Quiz!
           </Text>
         </Box>
+        <Text
+          marginTop="2rem"
+          fontWeight="400"
+          fontSize="1.25rem"
+          color="text-gray-navy"
+          fontStyle="italic"
+          className="bottom-title"
+        >
+          Pick a subject to get started.
+        </Text>
+      </Box>
 
-        <Flex width="35.25rem" direction="column" gap="1.5rem">
-          {categories.map((item, index) => (
-            <QuestionArea
-              handleClick={handleClick}
-              icon={true}
-              variants={false}
-              item={item}
-              key={index}
-            >
-              {item.label}
-            </QuestionArea>
-          ))}
-        </Flex>
+      <Flex width="35.25rem" direction="column" gap="1.5rem">
+        {categories.map((item, index) => (
+          <QuestionArea
+            handleClick={() => handleClick(item.link)}
+            icon={true}
+            variants={false}
+            item={item}
+            key={index}
+          >
+            {item.label}
+          </QuestionArea>
+        ))}
       </Flex>
-    </>
+    </Flex>
   );
 };
 
