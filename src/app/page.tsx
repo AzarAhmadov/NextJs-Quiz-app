@@ -33,9 +33,9 @@ const Page = () => {
           </Text>
         </Box>
         <Text
-          marginTop={{ base: "1rem", md: "2rem" }}
+          marginTop={{ base: "0.30rem", md: "2rem" }}
           fontWeight="400"
-          fontSize="1.25rem"
+          fontSize={{ base: "0.875rem", md: "1.25rem" }}
           color="text-gray-navy"
           fontStyle="italic"
           className="bottom-title"
@@ -47,7 +47,7 @@ const Page = () => {
       <Flex
         width={{ base: "100%", lg: "35.25rem" }}
         direction="column"
-        gap={{base:"0.75rem", md:"1.5rem"}}
+        gap={{ base: "0.75rem", md: "1.5rem" }}
       >
         {categories.map((item, index) => (
           <QuestionArea
