@@ -36,7 +36,7 @@ Follow these steps to set up the project locally:
 3. **Set up the environment**:
 
    ```bash
-   NEXT_PUBLIC_BASE_URLL=http://localhost:3000
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
    
 4. **Run the development server**:
 
