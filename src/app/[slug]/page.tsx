@@ -1,4 +1,3 @@
-
 "use client";
 
 import QuestionArea from "@/components/ui/QuestionArea";
@@ -67,100 +66,109 @@ const Page = () => {
     return redirect("/");
   }
 
-  const isEnd = current < category[slug]?.length;
+  const isEnd = current < category[slug]?.length - 1;
   const totalQuestions = category[slug]?.length;
   const progressValue = totalQuestions ? (current / totalQuestions) * 100 : 0;
 
+  const quizDone = () => {
+    if (isEnd) {
+      return <Completed />;
+    }
+  };
+
   return (
     <>
-      {isEnd ? (
-        <Flex
-          justifyContent="space-between"
-          direction={{ base: "column", lg: "row" }}
-          marginTop="85px"
-          gapY={{base:'2.5rem', md:"4rem"}}
-        >
-          <Box width={{ base: "100%", lg: "29.063rem" }}>
-            <Text
-              color="text-gray-navy"
-              fontStyle="italic"
-              fontWeight="400"
-              fontSize={{base:"0.875rem ", md:"1.25rem" }}
-              marginBottom={{base:"0.75rem ", md:"1.688rem"}}
-            >
-              Question {current + 1} of {category[slug]?.length}
-            </Text>
-            <Text color="text-dark-navy" fontWeight="500" fontSize={{base:"1.25rem", md:"2.25rem"}}>
-              {category[slug]?.[current]?.question}
-            </Text>
+      <Flex
+        justifyContent="space-between"
+        direction={{ base: "column", lg: "row" }}
+        marginTop="85px"
+        gapY={{ base: "2.5rem", md: "4rem" }}
+      >
+        <Box width={{ base: "100%", lg: "29.063rem" }}>
+          <Text
+            color="text-gray-navy"
+            fontStyle="italic"
+            fontWeight="400"
+            fontSize={{ base: "0.875rem ", md: "1.25rem" }}
+            marginBottom={{ base: "0.75rem ", md: "1.688rem" }}
+          >
+            Question {current + 1} of {category[slug]?.length}
+          </Text>
+          <Text
+            color="text-dark-navy"
+            fontWeight="500"
+            fontSize={{ base: "1.25rem", md: "2.25rem" }}
+          >
+            {category[slug]?.[current]?.question}
+          </Text>
 
-            <ProgressRoot
-              marginTop={{ base: "2.5rem", lg: "10.25rem" }}
-              colorPalette="purple"
-              value={progressValue}
-            >
-              <ProgressBar borderRadius="3rem" />
-            </ProgressRoot>
-          </Box>
+          <ProgressRoot
+            marginTop={{ base: "2.5rem", lg: "10.25rem" }}
+            colorPalette="purple"
+            value={progressValue}
+          >
+            <ProgressBar borderRadius="3rem" />
+          </ProgressRoot>
+        </Box>
 
-          <Flex direction="column">
-            <Flex
-              pointerEvents={selectedOption ? "none" : ""}
-              width={{ base: "100%", lg: "35.25rem" }}
-              direction="column"
-              gap={{base:"0.75rem", md:"1.5rem"}}
-            >
-              {category[slug][current].options.map(
-                (option: string, index: number) => (
-                  <QuestionArea
-                    correct={category[slug][current].answer === selectedOption}
-                    wrong={category[slug][current].answer !== selectedOption}
-                    selectedOption={selectedOption === option}
-                    key={index}
-                    handleClick={() => handleSelect(option)}
-                    variantsText={variants[index]}
-                    variants={true}
-                  >
-                    {option}
-                  </QuestionArea>
-                )
-              )}
-            </Flex>
-            <Button
-              marginTop="2rem"
-              type="button"
-              onClick={handleSubmit}
-              fontSize={{base:"1.125rem", md:'1.5rem'}}
-              fontWeight="500"
-              bg="#A729F5"
-              paddingY={{base:"1.188rem", md:"2rem"}}
-              borderRadius={{base:"0.95rem", md:"1.5rem"}}
-              _hover={{ opacity: "0.7" }}
-              className="button"
-            >
-              {selectedOption ? "Next question" : "Submit Answer"}
-            </Button>
-
-            {status && (
-              <Flex
-                alignItems="center"
-                justifyContent="center"
-                gapX="0.813rem"
-                color="#EE5454"
-                fontWeight="400"
-                textAlign="center"
-                fontSize={{base:"1.125rem", md:"1.2rem"}}
-                marginTop={{base:"1rem", md:"2.5rem"}}
-              >
-                <Image src="/wrong.svg" width={30} height={30} alt="wrong" />
-                Please select an answer
-              </Flex>
+        <Flex direction="column">
+          <Flex
+            pointerEvents={selectedOption ? "none" : ""}
+            width={{ base: "100%", lg: "35.25rem" }}
+            direction="column"
+            gap={{ base: "0.75rem", md: "1.5rem" }}
+          >
+            {category[slug]?.[current]?.options.map(
+              (option: string, index: number) => (
+                <QuestionArea
+                  correct={
+                    category[slug][current].answer === selectedOption
+                  }
+                  wrong={category[slug][current].answer !== selectedOption}
+                  selectedOption={selectedOption === option}
+                  key={index}
+                  handleClick={() => handleSelect(option)}
+                  variantsText={variants[index]}
+                  variants={true}
+                >
+                  {option}
+                </QuestionArea>
+              )
             )}
           </Flex>
+          <Button
+            marginTop="2rem"
+            type="button"
+            onClick={handleSubmit}
+            fontSize={{ base: "1.125rem", md: "1.5rem" }}
+            fontWeight="500"
+            bg="#A729F5"
+            paddingY={{ base: "1.188rem", md: "2rem" }}
+            borderRadius={{ base: "0.95rem", md: "1.5rem" }}
+            _hover={{ opacity: "0.7" }}
+            className="button"
+          >
+            {selectedOption ? "Next question" : "Submit Answer"}
+          </Button>
+
+          {status && (
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              gapX="0.813rem"
+              color="#EE5454"
+              fontWeight="400"
+              textAlign="center"
+              fontSize={{ base: "1.125rem", md: "1.2rem" }}
+              marginTop={{ base: "1rem", md: "2.5rem" }}
+            >
+              <Image src="/wrong.svg" width={30} height={30} alt="wrong" />
+              Please select an answer
+            </Flex>
+          )}
         </Flex>
-      ) : (
-        <Completed />
-      )}
+      </Flex>
+      {quizDone()}
     </>
   );
 };
