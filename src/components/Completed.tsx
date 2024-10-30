@@ -55,9 +55,7 @@ const Completed = () => {
           boxShadow="0px 16px 40px 0px rgba(143, 160, 193, 0.14)"
           className="complete"
         >
-          {getFindCatagory && (
-           <Category getFindCatagory={getFindCatagory}/>
-          )}
+          {getFindCatagory && <Category getFindCatagory={getFindCatagory} />}
           <Text
             color="#313E51"
             fontWeight="500"

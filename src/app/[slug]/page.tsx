@@ -20,6 +20,7 @@ const Page = () => {
   const [current, setCurrent] = useState(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [status, setStatus] = useState(false);
+  const [isEnd, setIsEnd] = useState(true);
 
   const {
     data: category,
@@ -53,6 +54,7 @@ const Page = () => {
       setSelectedOption(null);
     } else {
       setCurrent(category[slug].length);
+      setIsEnd(false);
     }
   };
 
@@ -68,7 +70,6 @@ const Page = () => {
 
   const totalQuestions = category[slug]?.length;
   const progressValue = totalQuestions ? (current / totalQuestions) * 100 : 0;
-  const isEnd = current < totalQuestions - 1;
 
   return (
     <>
@@ -168,12 +169,11 @@ const Page = () => {
           </Flex>
         </Flex>
       ) : (
-        setTimeout(() => {
-          <Completed />;
-        }, 1)
+        <Completed />
       )}
     </>
   );
 };
 
 export default Page;
+  
