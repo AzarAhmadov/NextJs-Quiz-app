@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/app/styles/globals.css";
 import { Provider } from "@/components/ui/provider";
 import { Rubik } from "next/font/google";
-import { Container } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/react";
 import Heading from "@/components/common/Heading";
 import Providers from "@/components/Providers";
 import StoreProvider from "./StoreProvider";
@@ -26,12 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html className={rubik.className} suppressHydrationWarning lang="en">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/logo.png" />
+      </head>
       <body>
         <Provider>
-          <Container paddingX="4rem">
+          <Container paddingX={{ base: "1.5rem", md: "4rem" }} paddingBottom="1rem">
             <Heading />
             <Providers>
-              <StoreProvider>{children}</StoreProvider>
+              <StoreProvider>
+                <Box className="center">{children}</Box>
+              </StoreProvider>
             </Providers>
           </Container>
         </Provider>
