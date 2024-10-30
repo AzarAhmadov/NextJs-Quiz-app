@@ -118,22 +118,24 @@ const Page = () => {
             direction="column"
             gap={{ base: "0.75rem", md: "1.5rem" }}
           >
-            {category[slug]?.[current]?.options.map(
-              (option: string, index: number) => (
-                <QuestionArea
-                  correct={
-                    category[slug][current].answer === selectedOption
-                  }
-                  wrong={category[slug][current].answer !== selectedOption}
-                  selectedOption={selectedOption === option}
-                  key={index}
-                  handleClick={() => handleSelect(option)}
-                  variantsText={variants[index]}
-                  variants={true}
-                >
-                  {option}
-                </QuestionArea>
+            {category[slug]?.[current]?.options ? (
+              category[slug]?.[current]?.options.map(
+                (option: string, index: number) => (
+                  <QuestionArea
+                    correct={category[slug][current].answer === selectedOption}
+                    wrong={category[slug][current].answer !== selectedOption}
+                    selectedOption={selectedOption === option}
+                    key={index}
+                    handleClick={() => handleSelect(option)}
+                    variantsText={variants[index]}
+                    variants={true}
+                  >
+                    {option}
+                  </QuestionArea>
+                )
               )
+            ) : (
+              <Loading />
             )}
           </Flex>
           <Button
