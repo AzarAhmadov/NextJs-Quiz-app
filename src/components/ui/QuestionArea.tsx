@@ -21,9 +21,8 @@ const QuestionArea: React.FC<TypeCard> = ({
     <Flex
       bg="white"
       align="center"
-      w="100%"
-      maxW="35.25rem"
-      borderRadius="1.5rem"
+      width={{ base: "100%", lg: "35.25rem" }}
+      borderRadius={{ base: "0.75rem", md: "1.5rem" }}
       _hover={{ boxShadow: "xl", outline: "3px solid #A729F5" }}
       onClick={handleClick}
       className={`question ${(isCorrect && "correct") || (isWrong && "wrong")}`}
@@ -31,7 +30,7 @@ const QuestionArea: React.FC<TypeCard> = ({
       <Box
         display="flex"
         alignItems="center"
-        p="1.25rem"
+        p={{ base: "0.75rem", lg: "1.125rem" }}
         cursor="pointer"
         width="full"
       >
@@ -40,10 +39,11 @@ const QuestionArea: React.FC<TypeCard> = ({
             align="center"
             justify="center"
             bg={item.color}
-            w="56px"
-            h="50px"
-            borderRadius="0.70rem"
-            mr="2rem"
+            w={{ base: "2.5rem", md: "3.5rem" }}
+            h={{ base: "2.5rem", md: "3.5rem" }}
+            flexShrink="0"
+            borderRadius={{ base: "0.40rem", md: "0.70rem" }}
+            mr={{ base: "1rem", md: "2rem" }}
           >
             <Image alt={item.label} src={item.icon} width={32} height={32} />
           </Flex>
@@ -54,13 +54,14 @@ const QuestionArea: React.FC<TypeCard> = ({
             alignItems="center"
             justifyContent="center"
             bg={isCorrect ? "#26D782" : isWrong ? "#EE5454" : "#F4F6FA"}
-            w="3rem"
-            h="2.5rem"
+            w={{ base: "2.5rem", md: "3.5rem" }}
+            h={{ base: "2.5rem", md: "3.5rem" }}
+            flexShrink="0"
             color={selectedOption ? "#fff" : "#313e51"}
             borderRadius="0.5rem"
             fontWeight="500"
-            mr="2rem"
-            fontSize="1.75rem"
+            mr={{ base: "1rem", md: "2rem" }}
+            fontSize={{ base: "1.125rem", md: "1.75rem" }}
           >
             {variantsText}
           </Text>
@@ -69,10 +70,10 @@ const QuestionArea: React.FC<TypeCard> = ({
         <Flex
           alignItems="center"
           justifyContent="space-between"
-          fontSize="1.45rem"
+          fontSize={{ base: "1.125rem", md: "1.45rem" }}
           fontWeight="500"
-          color="text-purple"
           w="100%"
+          className="text-dark-navy"
         >
           {children}
           {isCorrect && (

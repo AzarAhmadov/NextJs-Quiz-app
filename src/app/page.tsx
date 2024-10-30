@@ -14,16 +14,26 @@ const Page = () => {
   };
 
   return (
-    <Flex marginTop="6rem" justifyContent="space-between">
-      <Box lineHeight="5rem" color="text-dark-navy">
-        <Box className="title" fontSize="4rem" fontWeight="300">
+    <Flex
+      direction={{ base: "column", lg: "row" }}
+      gapX="2rem"
+      marginTop={{ base: "3rem", md: "6rem" }}
+      justifyContent="space-between"
+      gapY="2.5rem"
+    >
+      <Box lineHeight={{ base: "3rem", md: "5rem" }} color="#313E51">
+        <Box
+          className="title"
+          fontSize={{ base: "2.5rem", md: "4rem" }}
+          fontWeight="300"
+        >
           Welcome to the <br />
           <Text as="span" fontWeight="500">
             Frontend Quiz!
           </Text>
         </Box>
         <Text
-          marginTop="2rem"
+          marginTop={{ base: "1rem", md: "2rem" }}
           fontWeight="400"
           fontSize="1.25rem"
           color="text-gray-navy"
@@ -34,7 +44,11 @@ const Page = () => {
         </Text>
       </Box>
 
-      <Flex width="35.25rem" direction="column" gap="1.5rem">
+      <Flex
+        width={{ base: "100%", lg: "35.25rem" }}
+        direction="column"
+        gap={{base:"0.75rem", md:"1.5rem"}}
+      >
         {categories.map((item, index) => (
           <QuestionArea
             handleClick={() => handleClick(item.link)}

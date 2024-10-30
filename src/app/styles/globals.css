@@ -6,17 +6,41 @@ html {
   font-size: 16px;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.center {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 270px);
+  width: 100%;
+  > div {
+    width: 100%;
+  }
+}
+
+.correct {
+  outline: 3px solid #26d782;
+}
+
+.wrong {
+  outline: 3px solid #ee5454;
 }
 
 .dark {
   background: var(--dark-mode);
+  .complete {
+    background: #3b4d66;
+    p {
+      color: #fff;
+    }
+  }
+  .chakra-progress__track{
+    background: #3B4D66;
+  }
   .question {
     background: #3b4d66;
+
+    .text-dark-navy{
+      color:#fff;
+    }
   }
   .button {
     color: #fff;

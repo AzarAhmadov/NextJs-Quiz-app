@@ -29,3 +29,12 @@ export type TypeQuestion = {
   answer: string;
   item: any;
 };
+
+export type TypeCategory = {
+  getFindCatagory: {
+    color: string;
+    label: string;
+    icon: string;
+    link: string;
+  };
+};
